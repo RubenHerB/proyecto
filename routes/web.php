@@ -32,6 +32,28 @@ Route::get('contacto', [App\Http\Controllers\FrontController::class, 'contacto']
 Route::get('panel', [App\Http\Controllers\PanelController::class, 'panel'])->name('panel');
 Route::get('panel/todasvisitas', [App\Http\Controllers\PanelController::class, 'todasvisitas'])->name('todasvisitas');
 
+Route::get('updater/update', function (\Codedge\Updater\UpdaterManager $updater) {
+
+    // Check if new version is available
+    if($updater->source()->isNewVersionAvailable()) {
+
+        // Get the current installed version
+        echo $updater->source()->getVersionInstalled();
+
+        // Get the new version available
+        $versionAvailable = $updater->source()->getVersionAvailable();
+
+        // Create a release
+        $release = $updater->source()->fetch($versionAvailable);
+
+        // Run the update process
+        $updater->source()->update($release);
+
+    } else {
+        echo "No new version available.";
+    }
+
+});
 
 Auth::routes();
 
