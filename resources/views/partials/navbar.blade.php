@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid ">
-    <a class="navbar-brand titulo icon-link" href="index.html">
+    <a class="navbar-brand titulo icon-link" href="{{URL('/')}}">
       <div class="row justify-content-start align-items-center">
         <div class="col col-md-2"><img src="{{URL('img/botella.png')}}" alt="Logo" class="img-fluid imagenico"> </div>
         <div class="col col-md-10 text-wrap text-md-nowrap titulo">Llagar <span>El Sidrero</span> 1952</div>
