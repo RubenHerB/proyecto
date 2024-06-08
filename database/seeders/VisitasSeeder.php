@@ -23,7 +23,7 @@ class VisitasSeeder extends Seeder
 [11, '2024-06-06 12:49:25', '2024-06-06 12:49:25', 4, 1, 1, '2024-06-05', 0],
 [12, '2024-06-06 12:49:33', '2024-06-06 13:21:54', 4, 1, 1, '2024-06-22', 1]];
 foreach ($visitas as $visita) {
-    DB::table('users')->insert([
+    DB::table('visitas')->insert([
         'id'=> $visita[0],
         'created_at'=> $visita[1],
         'updated_at' => $visita[2],
