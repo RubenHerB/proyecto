@@ -26,11 +26,14 @@ Route::post('cart/removeone', [App\Http\Controllers\CartController::class, 'remo
 Route::get('cart/comprar', [App\Http\Controllers\OrderController::class, 'comprar'])->name('comprar');
 
 Route::get('historial', [App\Http\Controllers\FrontController::class, 'historial']);
-Route::get('contacto', [App\Http\Controllers\FrontController::class, 'contacto']);
-
+Route::get('contacto', function () {
+    return view('portfolio.contacto');
+})->name('contacto');
+Route::post('contacto/send_contacto', [App\Http\Controllers\ContactoController::class, 'send_contacto'])->name('send_contacto');
 
 Route::get('panel', [App\Http\Controllers\PanelController::class, 'panel'])->name('panel');
 Route::get('panel/todasvisitas', [App\Http\Controllers\PanelController::class, 'todasvisitas'])->name('todasvisitas');
+
 
 Route::get('updater/update', function (\Codedge\Updater\UpdaterManager $updater) {
 
