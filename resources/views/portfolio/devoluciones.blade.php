@@ -56,7 +56,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <form method="post" action="{{ route(confirmar_devolver') }}">
+                                <form method="post" action="{{ route('confirmar_devolver') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $pedido->id }}" />
                                     <input type="submit" name="btn" value="Confirmar" class="btn btn-warning" />
