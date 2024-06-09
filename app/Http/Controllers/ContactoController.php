@@ -29,4 +29,16 @@ class ContactoController extends Controller
             return redirect()->back()->with("deny","Debes iniciar sesion antes de enviar un mensaje");
         }
     }
+
+
+    public function marcarcontacto(Request $request){
+        if (Auth::check() && Auth::user()->role == 1 && $request->id!=null) {
+            $contacto = Contacto::find($request->id);
+            $contacto->status=1;
+            $contacto->save();
+            return redirect()->back()->with("success", "El estado de la solicitud se a cambiado a resuelta");
+        }else{
+            return redirect()->back()->with("deny", "Debes iniciar sesión como trabajador para gestionar los mensajes");
+        }
+    }
 }

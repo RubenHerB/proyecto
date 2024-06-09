@@ -25,14 +25,28 @@ Route::post('cart/removeitem', [App\Http\Controllers\CartController::class, 'rem
 Route::post('cart/removeone', [App\Http\Controllers\CartController::class, 'removeOne'])->name('removeone');
 Route::get('cart/comprar', [App\Http\Controllers\OrderController::class, 'comprar'])->name('comprar');
 
-Route::get('historial', [App\Http\Controllers\FrontController::class, 'historial']);
+Route::get('historial', [App\Http\Controllers\HistorialController::class, 'historial'])->name('historial');
+Route::post('historial/cancelar', [App\Http\Controllers\HistorialController::class, 'cancelar'])->name('cancelar');
+Route::post('historial/devolver', [App\Http\Controllers\HistorialController::class, 'devolver'])->name('devolver');
+
+
 Route::get('contacto', function () {
     return view('portfolio.contacto');
 })->name('contacto');
 Route::post('contacto/send_contacto', [App\Http\Controllers\ContactoController::class, 'send_contacto'])->name('send_contacto');
 
 Route::get('panel', [App\Http\Controllers\PanelController::class, 'panel'])->name('panel');
+Route::get('info_devolver', function () {
+    return view('portfolio.infodevolver');
+})->name('info_devolver');
+
 Route::get('panel/todasvisitas', [App\Http\Controllers\PanelController::class, 'todasvisitas'])->name('todasvisitas');
+Route::get('panel/panelcontacto', [App\Http\Controllers\PanelController::class, 'panelcontacto'])->name('panelcontacto');
+Route::post('panel/marcarcontacto', [App\Http\Controllers\ContactoController::class, 'marcarcontacto'])->name('marcarcontacto');
+Route::get('panel/nuevos_pedidos', [App\Http\Controllers\PanelController::class, 'nuevos_pedidos'])->name('nuevos_pedidos');
+Route::post('panel/nuevos_pedidos/enviar', [App\Http\Controllers\HistorialController::class, 'poner_en_reparto'])->name('enviar');
+Route::get('panel/devoluciones_pedidos', [App\Http\Controllers\PanelController::class, 'devoluciones_pedidos'])->name('devoluciones_pedidos');
+Route::post('panel/devoluciones_pedidos/confirmar_devolver', [App\Http\Controllers\HistorialController::class, 'confirmar_devolucion'])->name('confirmar_devolver');
 
 
 Route::get('updater/update', function (\Codedge\Updater\UpdaterManager $updater) {

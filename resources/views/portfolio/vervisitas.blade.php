@@ -40,7 +40,7 @@
                                       <h3 style="color:red">¡Cuidado! La reserva no se podra recuperar</h3>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                       <form method="post" action="{{ route('cancelvisita') }}">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $visita->id }}" />
